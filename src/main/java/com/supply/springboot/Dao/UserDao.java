@@ -1,6 +1,8 @@
 package com.supply.springboot.Dao;
 
 import com.supply.springboot.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
 
@@ -21,5 +23,8 @@ public interface UserDao extends CrudRepository<User,Integer> {
     public User findByuserTel(String userTel);
 
     public User findByuserName(String userName);
+
+    //分页功能
+    public Page<User> findByuserNameNotNull(Pageable pageable);
 
 }

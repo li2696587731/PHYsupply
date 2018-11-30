@@ -5,8 +5,15 @@ package com.supply.springboot.Controller;/**
  */
 
 import com.supply.springboot.Dao.UserDao;
+import com.supply.springboot.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -37,4 +44,12 @@ public class UserController {
         return userDao.findByuserNameNotNull().toString();
     }
 
+
+
+    @RequestMapping(value = "/Bypage",method = RequestMethod.GET)
+    public Page<User> getBypage(){
+        Sort sort = new Sort(Sort.Direction.DESC,"userId");
+        Pageable pageable = new PageRequest(1,4,sort);
+        return userDao.findByuserNameNotNull(pageable);
+    }
 }
