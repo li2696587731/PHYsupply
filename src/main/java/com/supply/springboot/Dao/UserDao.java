@@ -17,7 +17,7 @@ import java.util.List;
 @Transactional
 public interface UserDao extends CrudRepository<User,Integer> {
     //第一个参数User表示所操作的实体类名称，第二个参数Integer表示实体类中主键的类型
-
+    //遍历用户数据
     public List<User> findByuserNameNotNull();
 
     public User findByuserTel(String userTel);
