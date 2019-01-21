@@ -4,7 +4,6 @@ package com.supply.springboot.entity;/**
  * 声明:
  */
 
-import lombok.Cleanup;
 import lombok.Data;
 import javax.persistence.*;
 

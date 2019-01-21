@@ -1,4 +1,4 @@
-package com.supply.demo;/**
+package com.supply.springboot.Utils;/**
  * 作者: UUIDUtils-ljh
  * 创建时间: 2018/12/12 9:22
  * 声明:
@@ -6,7 +6,6 @@ package com.supply.demo;/**
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.junit.Test;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -78,24 +77,4 @@ public class UUIDUtils {
         }
         return digest;
     }
-
-    @Test
-    public void printUUID(){
-        String api = "bf";
-        String secret = "ljh";
-        String order = "eid";
-        String payload_base64 = "";
-        String payload_32_sha384hmac = "";
-        try {
-            payload_base64 = baseDigest(api,secret,order);
-            payload_32_sha384hmac = hmacDigest(payload_base64, secret, "HmacSHA384");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        System.out.println("加密后UUID1：" + payload_base64);
-        System.out.println("加密后UUID2：" + payload_32_sha384hmac);
-    }
-
 }

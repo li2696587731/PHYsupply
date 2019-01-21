@@ -7,6 +7,9 @@ package com.supply.springboot.Controller;/**
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 /**
  *@ClassName HelloIDEA
  *@Author Junlunet-ljh
@@ -19,4 +22,19 @@ public class HelloIDEA {
     public String outsay(){
         return "Hello My First IDEA Demo! GG!";
     }
+
+/*    @RequestMapping("/test")
+    public String test(){
+        Test t1 = new Test();
+        try {
+            t1.contextLoads();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return t1.toString();
+    }*/
 }
